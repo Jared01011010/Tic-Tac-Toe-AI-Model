@@ -67,7 +67,7 @@ function winVerifier() {
 
 // AI move
 async function aiMove() {
-    const response = await fetch('http://localhost:5000/move', {
+    const response = await fetch('https://tic-tac-toe-ai-model.onrender.com/move', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ board: board.map(v => v) })
