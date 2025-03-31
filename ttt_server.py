@@ -1,5 +1,5 @@
 import torch
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import torch.nn as nn
 
@@ -31,6 +31,10 @@ model.eval()
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/move', methods=['POST'])
 def get_ai_move():
