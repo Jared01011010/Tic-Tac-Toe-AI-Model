@@ -1,0 +1,93 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .game-board {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .cell {
+        width: 62px;
+        height: 62px;
+    }
+    
+    .v-bar,
+    .v-bar-top,
+    .v-bar-bottom {
+        width: 7px;
+        height: 62px;
+        background-color: black;
+    }
+    
+    .v-bar-top {
+        border-top-left-radius: 3.5px;
+        border-top-right-radius: 3.5px;
+    }
+    
+    .v-bar-bottom {
+        border-bottom-left-radius: 3.5px;
+        border-bottom-right-radius: 3.5px;
+    }
+    
+    .h-bar {
+        width: 200px;
+        height: 7px;
+        background-color: black;
+        border-radius: 3.5px;
+    }
+    
+    .row {
+        display: flex;
+        width: 200px;
+        height: 62px;
+    }
+    
+    .piece {
+        width: 62px;
+        height: 62px;
+    }
+        </style>
+    </head>
+    <body>
+        <div class="game-board">
+            <div class="row">
+                <div class="cell" cell-id="0" id="cell"></div>
+                <div class="v-bar-top"></div>
+                <div class="cell" cell-id="1" id="cell"></div>
+                <div class="v-bar-top"></div>
+                <div class="cell" cell-id="2" id="cell"></div>
+            </div>
+            <div class="h-bar"></div>
+            <div class="row">
+                <div class="cell" cell-id="3" id="cell"></div>
+                <div class="v-bar"></div>
+                <div class="cell" cell-id="4" id="cell"></div>
+                <div class="v-bar"></div>
+                <div class="cell" cell-id="5" id="cell"></div>
+            </div>
+            <div class="h-bar"></div>
+            <div class="row">
+                <div class="cell" cell-id="6" id="cell"></div>
+                <div class="v-bar-bottom"></div>
+                <div class="cell" cell-id="7" id="cell"></div>
+                <div class="v-bar-bottom"></div>
+                <div class="cell" cell-id="8" id="cell"></div>
+            </div>
+        </div>
+    
+        
+        <div style="margin-bottom: 10px;">
+            <label>Who starts?</label>
+            <button onclick="startGame('player')">Player</button>
+            <button onclick="startGame('ai')">AI</button>
+        </div>
+        <div id="result" style="margin-bottom: 10px; font-weight: bold;"></div>
+    
+        <script src="/static/ai_ttt.js"></script>
+        
+    </body>
+    </html>
