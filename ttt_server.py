@@ -23,7 +23,7 @@ class NN(nn.Module):
         return x
 
 # Load model from ttt_model.ipynb
-model = NN([9, 150, 300, 150], num_classes=9)
+model = NN([9, 250, 300, 300, 250], num_classes=9)
 model.load_state_dict(torch.load('ttt_model.pth'))
 model.eval()
 
