@@ -24,7 +24,7 @@ class NN(nn.Module):
 
 # Load model from ttt_model.ipynb
 model = NN([9, 300, 300], num_classes=9)
-model.load_state_dict(torch.load('ttt_final_model.pth'))
+model.load_state_dict(torch.load('ttt_model.pth'))
 model.eval()
 
 app = Flask(__name__)
