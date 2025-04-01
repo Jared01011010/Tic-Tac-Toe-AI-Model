@@ -3,12 +3,11 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import torch.nn as nn
 
+# Model architecture.
 class NN(nn.Module):
     def __init__(self, neurons, num_classes):
         super(NN, self).__init__()
-
         self.neurons = neurons
-
         for i in range(len(neurons)):
             if i == len(neurons) - 1:
                 setattr(self, f'fc{i+1}', nn.Linear(neurons[i], num_classes))
@@ -16,15 +15,14 @@ class NN(nn.Module):
                 setattr(self, f'fc{i+1}', nn.Linear(neurons[i], neurons[i+1]))
 
     def forward(self, x):
-
         for i in range(len(self.neurons)):
             if i == len(self.neurons) - 1:
                 x = getattr(self, f'fc{i+1}')(x)
             else:
                 x = torch.tanh(getattr(self, f'fc{i+1}')(x))
-
         return x
 
+# Load model from ttt_model.ipynb
 model = NN([9, 300, 300], num_classes=9)
 model.load_state_dict(torch.load('ttt_final_model.pth'))
 model.eval()
